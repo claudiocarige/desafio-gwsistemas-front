@@ -1,1 +1,27 @@
 @import '../../../../variables.scss';
+
+.container{
+  margin-top: 2rem;
+  display: block;
+  font-size: 1.3rem;
+  border-radius: 10px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.material-symbols-outlined {
+  margin: auto;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  font-size: 3rem;
+  display: flexbox;
+  color: aliceblue;
+}
+
+a{
+  text-decoration: none;
+}
+
+.material-symbols-outlined:hover {
+  color: #807b7b;
+}
