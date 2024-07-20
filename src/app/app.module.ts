@@ -8,10 +8,38 @@ import { HeaderPrincipalComponent } from './core/components/header-principal/hea
 import { FooterPrincipalComponent } from './core/components/footer-principal/footer-principal.component';
 import { SideMenuComponent } from './core/components/side-menu/side-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ListCustomersComponent } from './core/components/customers/list-customers/list-customers.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule} from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+
+
 
 @NgModule({
-  declarations: [AppComponent, HomePrincipalComponent, HeaderPrincipalComponent, FooterPrincipalComponent, SideMenuComponent],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+  declarations: [AppComponent, HomePrincipalComponent, HeaderPrincipalComponent, FooterPrincipalComponent, SideMenuComponent, ListCustomersComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatInputModule,
+    HttpClientModule,
+    MatIconModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatButtonModule
+
+
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
