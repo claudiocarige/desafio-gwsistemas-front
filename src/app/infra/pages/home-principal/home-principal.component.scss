@@ -1,0 +1,76 @@
+@import '../../../../../variables.scss';
+
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color:$cor-primaria;
+  display: grid;
+  grid-template-columns: 14% 36% 36% 13%;
+  grid-template-rows: 10% 81% 7%;
+  grid-auto-columns: 1fr;
+  gap: 0% 0%;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "menu menu menu menu"
+    "side-menu transition transition transition"
+    "footer footer footer footer";
+  position: absolute;
+}
+
+.transition {
+  grid-area: transition;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: rgb(232, 232, 255);
+  overflow-x: hidden;
+  justify-content: center;
+  display: flexbox;
+  align-items: center;
+  border: 3px solid rgb(0, 5, 54);
+  border-radius: 2rem;
+  box-shadow: 3px 3px 8px 3px rgba(0,0,0,0.49);
+  -webkit-box-shadow: 3px 3px 8px 3px rgba(0,0,0,0.49);
+  -moz-box-shadow: 3px 3px 8px 3px rgba(0,0,0,0.49);
+}
+
+.menu {
+  grid-area: menu;
+  background-color: $cor-primaria;
+  font-size: 1rem;
+  position: fixed;
+  width: 100%;
+  height: 10%;
+  z-index: 1;
+  border-radius: 1rem;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: green;
+  font-size: 1rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 7%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  z-index: 1;
+}
+
+.side-menu {
+  grid-area: side-menu;
+  background-color:$cor-primaria;
+  font-size: 1rem;
+  position: fixed;
+  width: 14%;
+  height: 100%;
+  z-index: 1;
+}
+
+

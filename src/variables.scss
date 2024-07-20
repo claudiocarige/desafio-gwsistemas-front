@@ -1,0 +1,27 @@
+/* Configurations Light mode */
+
+$modo-light: true;
+
+$cor-primaria: #c4e1fd;
+$cor-secundaria: #1e90ff;
+$cor-terciaria: #481fff;
+$cor-error: #ff3a85;
+$cor-sucess: #00d68f;
+$cor-warning: #ffaa00;
+$cor-info: #0095ff;
+$cor-texto: #000000;
+$cor-texto-secundario: rgb(87, 87, 87);
+
+
+/* Configurations Dark mode */
+
+$modo-dark: false;
+
+$cor-primaria-dark: #3d3d3d;
+$cor-secundaria-dark: #222222;
+$cor-terciaria-dark: #000000;
+$cor-error-dark: #ff64a0;
+$cor-sucess-dark: #00ec9e;
+$cor-warning-dark: #fdc34f;
+$cor-info-dark: #52b7ff;
+$cor-texto-dark: #ffffff;
