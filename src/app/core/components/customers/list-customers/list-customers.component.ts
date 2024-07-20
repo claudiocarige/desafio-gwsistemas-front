@@ -5,7 +5,7 @@ import { IndividualCustomer } from 'src/app/core/models/modelIndividualCustomer'
 import { CompanyCustomer } from 'src/app/core/models/moldelCompanyCustomer';
 import { Customer } from 'src/app/core/models/modelCustomer';
 import { CustomerDTO } from 'src/app/core/models/modelCustomerDTO';
-import { CustomersServiceService } from 'src/app/core/useCases/services/customers-service.service';
+import { CustomersServiceService } from 'src/app/core/useCases/services/customers-service/customers-service.service';
 
 @Component({
   selector: 'app-list-customers',
