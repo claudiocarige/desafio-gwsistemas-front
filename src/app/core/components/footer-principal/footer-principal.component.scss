@@ -1,6 +1,7 @@
 @import '../../../../variables.scss';
 
 p{
-  padding-top:15px ;
-  color: $cor-texto-secundario ;
+  padding-top:1rem ;
+  color: $cor-texto-terciario;
+  text-shadow: 0.1rem 0.5px 0.5px $cor-texto-secundario;
 }
