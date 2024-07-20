@@ -18,11 +18,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { ListDeliveryComponent } from './core/components/delivery/list-delivery/list-delivery.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, HomePrincipalComponent, HeaderPrincipalComponent, FooterPrincipalComponent, SideMenuComponent, ListCustomersComponent],
+  declarations: [AppComponent, HomePrincipalComponent, HeaderPrincipalComponent, FooterPrincipalComponent, SideMenuComponent, ListCustomersComponent, ListDeliveryComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
