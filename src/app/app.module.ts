@@ -4,9 +4,10 @@ import { BrowserModule    } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent     } from './app.component';
 import { HomePrincipalComponent } from './infra/pages/home-principal/home-principal.component';
+import { HeaderPrincipalComponent } from './infra/pages/header-principal/header-principal.component';
 
 @NgModule({
-  declarations: [AppComponent, HomePrincipalComponent],
+  declarations: [AppComponent, HomePrincipalComponent, HeaderPrincipalComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
