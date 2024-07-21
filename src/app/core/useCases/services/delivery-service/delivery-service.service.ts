@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { API_URL } from 'src/app/config/api.config';
@@ -20,8 +20,14 @@ export class DeliveryServiceService {
     return deliveries;
   }
 
-  createDelivery(delivery: DeliveryResponse): Observable<DeliveryRequest>{
-    let newDelivery = this.http.post<DeliveryRequest>(`${API_URL.urlBase}/api/v1/delivery/create`, delivery);
-    return newDelivery;
+
+  confirmDelivery(deliveryId: number, password: string): Observable<DeliveryDTO> {
+
+    return this.http.put<DeliveryDTO>(`${API_URL.urlBase}/api/v1/delivery/delivery-confirmation?deliveryId=${deliveryId}&confirmationCode=${password}`, {});
   }
+
+  findById(id: string): Observable<DeliveryDTO> {
+    return this.http.get<DeliveryDTO>(`${API_URL.urlBase}/api/v1/delivery/${id}`);
+  }
+
 }
