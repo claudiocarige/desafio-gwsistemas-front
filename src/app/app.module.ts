@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { ListDeliveryComponent } from './core/components/delivery/list-delivery/list-delivery.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -37,7 +38,15 @@ import { ListDeliveryComponent } from './core/components/delivery/list-delivery/
     FormsModule,
     ReactiveFormsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+
+
+    ToastrModule.forRoot({
+      easeTime: 500,
+      timeOut: 3200,
+      positionClass:  'toast-top-right',
+      closeButton: true
+   })
 
 
   ],
