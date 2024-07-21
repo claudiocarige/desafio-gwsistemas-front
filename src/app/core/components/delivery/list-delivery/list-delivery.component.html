@@ -1,40 +1,30 @@
 <div class="container">
-  <h2 class="little-container">Clientes</h2>
+  <h2 class="little-container">Deliveries Pendentes</h2>
   <div class="tabela mat-elevation-z8 paginator-fluid">
     <table mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>Id</th>
         <td mat-cell *matCellDef="let element">{{ element.id }}</td>
       </ng-container>
-      <ng-container matColumnDef="customerName">
-        <th mat-header-cell *matHeaderCellDef>Nome</th>
-        <td mat-cell *matCellDef="let element">{{ element.customerName }}</td>
+      <ng-container matColumnDef="sender">
+        <th mat-header-cell *matHeaderCellDef>Remetente</th>
+        <td mat-cell *matCellDef="let element">{{ element.sender.customerName }}</td>
       </ng-container>
-      <ng-container matColumnDef="cpfOrCnpj">
-        <th mat-header-cell *matHeaderCellDef>CPF/CNPJ</th>
-        <td mat-cell *matCellDef="let element">{{ element.cpfOrCnpj }}</td>
+      <ng-container matColumnDef="recipient">
+        <th mat-header-cell *matHeaderCellDef>Destinatário</th>
+        <td mat-cell *matCellDef="let element">{{ element.recipient.customerName }}</td>
       </ng-container>
-      <ng-container matColumnDef="address">
-        <th mat-header-cell *matHeaderCellDef>Endereço</th>
-        <td mat-cell *matCellDef="let element">{{ element.address.street }}</td>
+      <ng-container matColumnDef="statusDelivery">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let element">{{ element.statusDelivery }}</td>
       </ng-container>
-      <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef>E-mail</th>
-        <td mat-cell *matCellDef="let element">{{ element.principalEmail }}</td>
+      <ng-container matColumnDef="freightValue">
+        <th mat-header-cell *matHeaderCellDef>Valor Frete</th>
+        <td mat-cell *matCellDef="let element">{{ element.freightValue }}</td>
       </ng-container>
-      <ng-container matColumnDef="phoneNumber">
-        <th mat-header-cell *matHeaderCellDef>Telefone</th>
-        <td mat-cell *matCellDef="let element">{{ element.phoneNumber }}</td>
-      </ng-container>
-      <ng-container matColumnDef="whatsapp">
-        <th mat-header-cell *matHeaderCellDef>Whatsapp</th>
-        <td mat-cell *matCellDef="let element">{{ element.whatsapp }}</td>
-      </ng-container>
-      <ng-container matColumnDef="responsibleEmployee">
-        <th mat-header-cell *matHeaderCellDef>Responsable</th>
-        <td mat-cell *matCellDef="let element">
-          {{ element.responsibleEmployee }}
-        </td>
+      <ng-container matColumnDef="itemsList">
+        <th mat-header-cell *matHeaderCellDef>Itens</th>
+        <td mat-cell *matCellDef="let element">{{ element.itemsList[0].productName }}</td>
       </ng-container>
       <ng-container matColumnDef="acoes">
         <th mat-header-cell *matHeaderCellDef>Ações</th>

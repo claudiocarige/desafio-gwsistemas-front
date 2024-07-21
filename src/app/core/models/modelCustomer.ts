@@ -9,4 +9,7 @@ export interface Customer {
   principalEmail:      string;
   responsibleEmployee: string;
   emailList:           string[];
+  cpf?:                string;
+  cnpj?:               string;
+  corporateName:       string;
 }

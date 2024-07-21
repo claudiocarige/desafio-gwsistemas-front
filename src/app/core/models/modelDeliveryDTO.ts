@@ -1,10 +1,13 @@
+import { Customer } from "./modelCustomer";
+import { Item } from "./modelItem";
+
 export interface DeliveryDTO {
   id:               number;
-  sender:           string;
-  recipient:        string;
+  sender:           Customer;
+  recipient:        Customer;
   statusDelivery:   string;
   passwordDelivery: string;
   dateSolicitation: string;
   freightValue:     number;
-  itemsList:        string[];
+  itemsList:        Item[];
 }

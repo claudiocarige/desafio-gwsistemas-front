@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { DeliveryDTO } from 'src/app/core/models/modelDeliveryDTO';
+import { CustomersServiceService } from 'src/app/core/useCases/services/customers-service/customers-service.service';
+import { DeliveryServiceService } from 'src/app/core/useCases/services/delivery-service/delivery-service.service';
 
 @Component({
   selector: 'app-list-delivery',
@@ -6,15 +11,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./list-delivery.component.scss']
 })
 export class ListDeliveryComponent {
-  ELEMENT_DATA: (CustomerDTO)[] = [];
 
-  displayedColumns: string[] = ['id', 'customerName', 'cpfOrCnpj',
-                    'address','email','phoneNumber' , 'whatsapp','responsibleEmployee', 'acoes'];
-  dataSource = new MatTableDataSource<CustomerDTO>(this.ELEMENT_DATA);
+
+
+  ELEMENT_DATA: (DeliveryDTO)[] = [];
+
+  displayedColumns: string[] = ['id', 'sender', 'recipient',
+                    'statusDelivery','freightValue','itemsList', 'acoes'];
+  dataSource = new MatTableDataSource<DeliveryDTO>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
-  private customersService = inject(CustomersServiceService);
+  private deliveryService = inject(DeliveryServiceService);
 
 
   constructor(){}
@@ -24,15 +32,15 @@ export class ListDeliveryComponent {
   }
 
   findAll() {
-    console.log('FINDALL PARA API GW SISTEMAS');
-    this.customersService.findAll().subscribe((data) => {
+    console.log('FINDALL DELIVERIES PARA API GW SISTEMAS');
+    this.deliveryService.findAll().subscribe((data) => {
       if (Array.isArray(data)) {
-        this.ELEMENT_DATA = data;
+        this.ELEMENT_DATA = data.filter(delivery => delivery.statusDelivery === 'PENDING'); // Filtra aqui
       } else if (data) {
-        this.ELEMENT_DATA = [data];
+        this.ELEMENT_DATA = (data as DeliveryDTO).statusDelivery === 'PENDING' ? [data] : [];
       }
       console.log(data);
-      this.dataSource = new MatTableDataSource<CustomerDTO>(this.ELEMENT_DATA);
+      this.dataSource = new MatTableDataSource<DeliveryDTO>(this.ELEMENT_DATA);
       if (this.paginator) {
         this.dataSource.paginator = this.paginator;
       }
@@ -43,6 +51,4 @@ export class ListDeliveryComponent {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-}
-
 }
