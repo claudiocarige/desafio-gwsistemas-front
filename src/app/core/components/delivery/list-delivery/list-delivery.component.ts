@@ -29,12 +29,12 @@ export class ListDeliveryComponent {
   constructor(){}
 
   ngOnInit(): void {
-    this.findAll();
+    this.findAllDeliveries();
   }
 
-  findAll() {
+  findAllDeliveries() {
     console.log('FINDALL DELIVERIES PARA API GW SISTEMAS');
-    this.deliveryService.findAll().subscribe((data) => {
+    this.deliveryService.findAllDeliveries().subscribe((data) => {
       if (Array.isArray(data)) {
         this.ELEMENT_DATA = data.filter(delivery => delivery.statusDelivery === 'PENDING'); // Filtra aqui
       } else if (data) {
