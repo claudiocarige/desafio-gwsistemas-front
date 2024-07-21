@@ -2,6 +2,7 @@ import { Component, inject, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { DeliveryDTO } from 'src/app/core/models/modelDeliveryDTO';
+import { Item } from 'src/app/core/models/modelItem';
 import { CustomersServiceService } from 'src/app/core/useCases/services/customers-service/customers-service.service';
 import { DeliveryServiceService } from 'src/app/core/useCases/services/delivery-service/delivery-service.service';
 
@@ -17,7 +18,7 @@ export class ListDeliveryComponent {
   ELEMENT_DATA: (DeliveryDTO)[] = [];
 
   displayedColumns: string[] = ['id', 'sender', 'recipient',
-                    'statusDelivery','freightValue','itemsList', 'acoes'];
+                    'statusDelivery','freightValue','itemsList'];
   dataSource = new MatTableDataSource<DeliveryDTO>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
@@ -45,6 +46,12 @@ export class ListDeliveryComponent {
         this.dataSource.paginator = this.paginator;
       }
     });
+  }
+
+  formatItemsList(itemsList: Item): string {
+    return `Product - ${itemsList.productName},<br>` +
+         `Valor - ${itemsList.itemShippingValue},<br>` +
+         `Quant. - ${itemsList.quantity},<br>`;
   }
 
   applyFilter(event: Event) {
