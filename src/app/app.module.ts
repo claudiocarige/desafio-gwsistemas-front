@@ -22,11 +22,14 @@ import { ListDeliveryComponent } from './core/components/delivery/list-delivery/
 import { ToastrModule } from 'ngx-toastr';
 import { CreateDeliveryComponent } from './core/components/delivery/create-delivery/create-delivery/create-delivery.component';
 import { ConfirmDeliveryComponent } from './core/components/delivery/confirm-delivery/confirm-delivery/confirm-delivery.component';
+import { MatOptionModule } from '@angular/material/core';
+import { ApresentationComponent } from './core/components/apresentation/apresentation/apresentation.component';
+import { ListProductsComponent } from './core/components/products/list-products/list-products.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, HomePrincipalComponent, HeaderPrincipalComponent, FooterPrincipalComponent, SideMenuComponent, ListCustomersComponent, ListDeliveryComponent, CreateDeliveryComponent, ConfirmDeliveryComponent],
+  declarations: [AppComponent, HomePrincipalComponent, HeaderPrincipalComponent, FooterPrincipalComponent, SideMenuComponent, ListCustomersComponent, ListDeliveryComponent, CreateDeliveryComponent, ConfirmDeliveryComponent, ApresentationComponent, ListProductsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -41,6 +44,7 @@ import { ConfirmDeliveryComponent } from './core/components/delivery/confirm-del
     ReactiveFormsModule,
     MatCardModule,
     MatButtonModule,
+    MatOptionModule ,
 
 
     ToastrModule.forRoot({

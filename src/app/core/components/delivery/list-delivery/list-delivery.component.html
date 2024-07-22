@@ -20,7 +20,7 @@
       </ng-container>
       <ng-container matColumnDef="freightValue">
         <th mat-header-cell *matHeaderCellDef>Valor Frete</th>
-        <td mat-cell *matCellDef="let element">{{ element.freightValue }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.freightValue | currency:'BRL':'symbol':'1.2-2'}}</td>
       </ng-container>
       <ng-container matColumnDef="itemsList">
         <th mat-header-cell *matHeaderCellDef>Item</th>

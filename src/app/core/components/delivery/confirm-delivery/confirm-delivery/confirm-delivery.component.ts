@@ -47,7 +47,7 @@ export class ConfirmDeliveryComponent {
       this.deliveryservise.confirmDelivery(this.deliveryDTO.id, password).subscribe(
         response => {
           this.toastr.success('Entrega confirmada com sucesso!');
-          this.route.navigate(['/home/deliveries']);
+          this.route.navigate(['/gwsistemas/deliveries']);
         },
         error => {
           this.toastr.error('Erro ao confirmar entrega!');

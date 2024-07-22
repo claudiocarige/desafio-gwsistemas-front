@@ -30,4 +30,8 @@ export class DeliveryServiceService {
     return this.http.get<DeliveryDTO>(`${API_URL.urlBase}/api/v1/delivery/${id}`);
   }
 
+  createDelivery(deliveryResponse: DeliveryResponse): Observable<DeliveryRequest> {
+    return this.http.post<DeliveryRequest>(`${API_URL.urlBase}/api/v1/delivery/request-delivery/save`, deliveryResponse);
+  }
+
 }
