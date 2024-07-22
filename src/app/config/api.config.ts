@@ -1,3 +1,3 @@
 export const API_URL = {
-  urlBase: "http://localhost:8080"
+  urlBase: "https://gwsistemas-43f1ae9234ad.herokuapp.com"
 }

@@ -30,8 +30,8 @@
       <ng-container matColumnDef="acoes">
         <th mat-header-cell *matHeaderCellDef> Ações </th>
         <td mat-cell *matCellDef="let element">
-          <a [routerLink]="['/home/deliveries/confirm-delivery', element.id]">
-            <i class="fa-solid fa-pen update"></i></a>
+          <a [routerLink]="['/gwsistemas/deliveries/confirm-delivery', element.id]">
+            <i class="fa-regular fa-circle-check update"></i></a>
         </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

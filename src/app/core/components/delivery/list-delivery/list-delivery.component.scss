@@ -21,10 +21,17 @@ th, td{
   font-size: 0.8rem;
 }
 
-.delete, .update{
+.update{
   cursor: pointer;
   font-size: 1.2rem;
 }
+
+.update:hover{
+  color: cor-sucess;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.6);
+  font-size: 1.2rem;
+}
+
 .delete{
   color: $cor-error;
 }
