@@ -15,6 +15,10 @@ export class TableComponentComponent {
 
   @Input() displayedColumns: string[] = [];
 
+  @Input() title: string = '';
+
+  @Input() columnsMap: { [key: string]: string } = {};
+
   colunas: string[] = [];
 
   addressFormated: string = '';

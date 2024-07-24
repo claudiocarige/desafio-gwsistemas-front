@@ -15,11 +15,22 @@ export class ListCustomersComponent {
     'customerName',
     'cpfOrCnpj',
     'address',
-    'email',
+    'principalEmail',
     'phoneNumber',
     'whatsapp',
     'responsibleEmployee'
   ];
+
+  columnsMap = {
+    'id': 'id',
+    'customerName': 'nome',
+    'cpfOrCnpj': 'cpf ou cnpj',
+    'address': 'endereço',
+    'principalEmail': 'e-mail',
+    'phoneNumber': 'telefone',
+    'whatsapp': 'whatsapp',
+    'responsibleEmployee': 'responsável'
+     };
 
   private customersService = inject(CustomersServiceService);
 

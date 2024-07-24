@@ -14,6 +14,16 @@ export class ListDeliveryComponent {
 
   displayedColumns: string[] = ['id', 'sender', 'recipient',
                     'statusDelivery','freightValue','itemsList', 'acoes'];
+
+  columnMap = {
+    'id': 'id',
+    'sender': 'remetente',
+    'recipient': 'destinatário',
+    'statusDelivery': 'status',
+    'freightValue': 'valor frete',
+    'itemsList': 'itens',
+    'acoes': 'ações'
+  };
   private deliveryService = inject(DeliveryServiceService);
 
   constructor(){}
