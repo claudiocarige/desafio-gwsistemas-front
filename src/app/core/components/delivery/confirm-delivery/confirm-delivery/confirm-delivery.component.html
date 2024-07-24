@@ -30,9 +30,8 @@
     <p>Por favor digite "<span class="check-span">Confirmar</span>" para prosseguir!</p>
     <mat-form-field appearance="fill">
         <mat-label>Nome</mat-label>
-        <input [(ngModel)]="check" matInput placeholder="Digite aqui">
+        <input [(ngModel)]="check" name="password" placeholder="Digite aqui">
     </mat-form-field>
-    {{passwordDelivery}}
 </div>
 <div class="button-event">
     <button routerLink="../../" mat-stroked-button color="warn">Cancelar</button>
