@@ -65,6 +65,11 @@ export class TableComponentComponent {
     return currencyColumns.includes(column);
   }
 
+  isPhoneOrWhatsapp(column: string): boolean {
+    const phoneColumns = ['phoneNumber', 'whatsapp'];
+    return phoneColumns.includes(column);
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

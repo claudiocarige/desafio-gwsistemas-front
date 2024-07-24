@@ -34,14 +34,19 @@
             </ng-container>
           </ng-template>
           <ng-template #defaultCell>
-            <ng-container *ngIf="isNumber(element[column]); else nonNumber">
-              <ng-container *ngIf="isCurrencyColumn(column); else decimalFormat">
-                {{ element[column] | currency:'BRL':'symbol':'1.2-2' }}
-              </ng-container>
-              <ng-template #decimalFormat>
-                {{ element[column] | number:'1.2-2' }}
-              </ng-template>
+            <ng-container *ngIf="isPhoneOrWhatsapp(column); else checkNumber">
+              {{ element[column] }}
             </ng-container>
+            <ng-template #checkNumber>
+              <ng-container *ngIf="isNumber(element[column]); else nonNumber">
+                <ng-container *ngIf="isCurrencyColumn(column); else decimalFormat">
+                  {{ element[column] | currency:'BRL':'symbol':'1.2-2' }}
+                </ng-container>
+                <ng-template #decimalFormat>
+                  {{ element[column] | number:'1.2-2' }}
+                </ng-template>
+              </ng-container>
+            </ng-template>
             <ng-template #nonNumber>
               {{ element[column] }}
             </ng-template>
