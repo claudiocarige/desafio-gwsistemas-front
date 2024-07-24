@@ -26,11 +26,12 @@ import { MatOptionModule } from '@angular/material/core';
 import { ApresentationComponent } from './core/components/apresentation/apresentation/apresentation.component';
 import { ListProductsComponent } from './core/components/products/list-products/list-products.component';
 import { TableComponentComponent } from './core/components/component/table-component/table-component/table-component.component';
+import { InputComponentComponent } from './core/components/component/input-component/input-component/input-component.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, HomePrincipalComponent, HeaderPrincipalComponent, FooterPrincipalComponent, SideMenuComponent, ListCustomersComponent, ListDeliveryComponent, CreateDeliveryComponent, ConfirmDeliveryComponent, ApresentationComponent, ListProductsComponent, TableComponentComponent],
+  declarations: [AppComponent, HomePrincipalComponent, HeaderPrincipalComponent, FooterPrincipalComponent, SideMenuComponent, ListCustomersComponent, ListDeliveryComponent, CreateDeliveryComponent, ConfirmDeliveryComponent, ApresentationComponent, ListProductsComponent, TableComponentComponent, InputComponentComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
