@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DeliveryServiceService } from 'src/app/core/useCases/services/delivery-service/delivery-service.service';
 import { DeliveryDTO } from './../../../../models/modelDeliveryDTO';
+import { Address } from './../../../../models/modelAddress';
 
 @Component({
   selector: 'app-confirm-delivery',
@@ -11,28 +12,61 @@ import { DeliveryDTO } from './../../../../models/modelDeliveryDTO';
 })
 export class ConfirmDeliveryComponent {
 
-  deliveryDTO!: DeliveryDTO;
+  address!: Address;
+  deliveryDTO: DeliveryDTO = {
+    id: 0,
+    sender: {
+      id: 0,
+      customerName: '',
+      address: this.address,
+      phoneNumber: '',
+      whatsapp: '',
+      principalEmail: '',
+      responsibleEmployee: '',
+      emailList: [],
+      cpf: '',
+      cnpj: '',
+      corporateName: ''
+    },
+    recipient: {
+      id: 0,
+      customerName: '',
+      address: this.address,
+      phoneNumber: '',
+      whatsapp: '',
+      principalEmail: '',
+      responsibleEmployee: '',
+      emailList: [],
+      cpf: '',
+      cnpj: '',
+      corporateName: ''
+    },
+    statusDelivery: '',
+    passwordDelivery: '',
+    dateSolicitation: '',
+    freightValue: 0,
+    itemsList: []
+  };
   id: string = '';
   passwordDelivery: string = '';
   check: string = "";
 
-  private deliveryservise = inject(DeliveryServiceService);
-  private toastr = inject(ToastrService);
-  private route = inject(Router);
-  private activateRoute = inject(ActivatedRoute);
-
-
   ngOnInit(): void {
     this.id = this.activateRoute.snapshot.paramMap.get('id') ?? '';
-    this.findById();
+    if (this.id){
+       this.findById();
+    }
   }
 
-  constructor() {
-
-  }
+  constructor(
+    private deliveryService: DeliveryServiceService,
+    private toastr: ToastrService,
+    private route: Router,
+    private activateRoute: ActivatedRoute
+  ) {  }
 
   findById() {
-    this.deliveryservise.findById(this.id).subscribe(
+    this.deliveryService.findById(this.id).subscribe(
       response => {
         this.deliveryDTO = response;
       },
@@ -44,7 +78,7 @@ export class ConfirmDeliveryComponent {
     confirmDelivery() {
       const password = this.passwordDelivery;
 
-      this.deliveryservise.confirmDelivery(this.deliveryDTO.id, password).subscribe(
+      this.deliveryService.confirmDelivery(this.deliveryDTO.id, password).subscribe(
         response => {
           this.toastr.success('Entrega confirmada com sucesso!');
           this.route.navigate(['/gwsistemas/deliveries']);
