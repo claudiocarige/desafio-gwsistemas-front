@@ -1,9 +1,6 @@
-import { Component, inject, ViewChild } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
+import { Component, inject } from '@angular/core';
 import { CustomerDTO } from 'src/app/core/models/modelCustomerDTO';
 import { CustomersServiceService } from 'src/app/core/useCases/services/customers-service/customers-service.service';
-import { Address } from 'src/app/core/models/modelAddress';
 
 @Component({
   selector: 'app-list-customers',
@@ -11,8 +8,8 @@ import { Address } from 'src/app/core/models/modelAddress';
   styleUrls: ['./list-customers.component.scss'],
 })
 export class ListCustomersComponent {
-  ELEMENT_DATA: CustomerDTO[] = [];
 
+  customers: CustomerDTO[] = [];
   displayedColumns: string[] = [
     'id',
     'customerName',
@@ -23,9 +20,6 @@ export class ListCustomersComponent {
     'whatsapp',
     'responsibleEmployee'
   ];
-  dataSource = new MatTableDataSource<CustomerDTO>(this.ELEMENT_DATA);
-
-  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
   private customersService = inject(CustomersServiceService);
 
@@ -40,24 +34,11 @@ export class ListCustomersComponent {
 
     this.customersService.findAll().subscribe((data) => {
       if (Array.isArray(data)) {
-        this.ELEMENT_DATA = data;
+        this.customers = data;
       } else if (data) {
-        this.ELEMENT_DATA = [data];
-      }
-      console.log(data);
-      this.dataSource = new MatTableDataSource<CustomerDTO>(this.ELEMENT_DATA);
-      if (this.paginator) {
-        this.dataSource.paginator = this.paginator;
+        this.customers = [data];
       }
     });
   }
 
-  formatAddress(address: Address): string {
-    return `${address.street}, ${address.number}, ${address.city}, ${address.state}, ${address.postalCode}`;
-  }
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
 }
