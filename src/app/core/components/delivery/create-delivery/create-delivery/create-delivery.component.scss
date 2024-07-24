@@ -76,6 +76,11 @@ img {
   color: blue;
 }
 
+.button-event button.disabled {
+  background: red;
+  color: white;
+}
+
 .check {
   width: 100%;
   padding-top: 1rem;
