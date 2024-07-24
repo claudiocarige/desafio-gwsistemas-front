@@ -3,26 +3,26 @@
   <div class="width-img central">
       <img src="../../../../../../assets/img/logoGWSistemas.png" alt="Imagem da logo da empresa GW Sistemas">
   </div>
-  <mat-form-field class="width-full" appearance="fill">
+  <mat-form-field class="width-full" appearance="outline">
     <mat-label>Remetente</mat-label>
     <input [(ngModel)]="deliveryDTO.sender.customerName" [disabled]="true" matInput>
   </mat-form-field>
 
-  <mat-form-field class="width-full" appearance="fill">
+  <mat-form-field class="width-full" appearance="outline">
     <mat-label>Destinatário</mat-label>
     <input [(ngModel)]="deliveryDTO.recipient.customerName" [disabled]="true" matInput>
   </mat-form-field>
 
-  <mat-form-field class="width-full" appearance="fill">
+  <mat-form-field class="width-full" appearance="outline">
     <mat-label>Status</mat-label>
     <input [(ngModel)]="deliveryDTO.statusDelivery" [disabled]="true" matInput>
   </mat-form-field>
 
-  <mat-form-field class="width-full" appearance="fill">
+  <mat-form-field class="width-full" appearance="outline">
     <mat-label>Valor Frete</mat-label>
     <input [(ngModel)]="deliveryDTO.freightValue" [disabled]="true" matInput>
   </mat-form-field>
-  <mat-form-field class="width-full" appearance="fill">
+  <mat-form-field class="width-full" appearance="outline">
     <mat-label>Código de entrega</mat-label>
     <input [(ngModel)]="passwordDelivery" matInput placeholder="Ex.. 8AA555">
   </mat-form-field>
