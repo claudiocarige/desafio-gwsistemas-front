@@ -12,17 +12,22 @@ import { ProductServiceService } from 'src/app/core/useCases/services/product-se
 export class ListProductsComponent {
 
 
-  ELEMENT_DATA: (Product)[] = [];
+  products: (Product)[] = [];
 
 
   displayedColumns: string[] = ['id', 'name', 'weight',
                     'volume','quantityStock', 'value'];
-  dataSource = new MatTableDataSource<Product>(this.ELEMENT_DATA);
 
-  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  columnMap = {
+    'id': 'id',
+    'name': 'nome',
+    'weight': 'peso (kg)',
+    'volume': 'volume (m³)',
+    'quantityStock': 'quantidade em estoque (un)',
+    'value': 'valor (R$)'
+  };
 
   private productyService = inject(ProductServiceService);
-
 
   constructor(){}
 
@@ -35,20 +40,10 @@ export class ListProductsComponent {
     this.productyService.findAllProducts().subscribe((data) => {
       {
         if (Array.isArray(data)) {
-          this.ELEMENT_DATA = data;
+          this.products = data;
         } else if (data) {
-          this.ELEMENT_DATA = [data];
-        }
-        console.log(data);
-        this.dataSource = new MatTableDataSource<Product>(this.ELEMENT_DATA);
-        if (this.paginator) {
-          this.dataSource.paginator = this.paginator;
+          this.products = [data];
         }
   }});
-  }
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

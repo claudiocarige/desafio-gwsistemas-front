@@ -56,6 +56,15 @@ export class TableComponentComponent {
            `Quant. - ${itemsList.quantity},<br>`;
   }
 
+  isNumber(value: any): boolean {
+    return !isNaN(parseFloat(value)) && isFinite(value);
+  }
+
+  isCurrencyColumn(column: string): boolean {
+    const currencyColumns = ['price', 'cost', 'amount']; // Adicione as colunas específicas aqui
+    return currencyColumns.includes(column);
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
